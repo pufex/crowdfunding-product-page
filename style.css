@@ -63,16 +63,16 @@ nav{
     font-weight: 700;
 }
 
-article{
+.main-article{
     position: absolute;
     top: 350px;
     left: 50%;
-    transform: translateX(-50%);
     width: 100%;
     max-width: 800px;
+    transform: translateX(-50%);
 }
 
-article section{
+.main-article section{
     width: 100%;
     background-color: var(--White);
     padding: 3rem;
@@ -92,10 +92,14 @@ article section{
     color: var(--Dark-gray)
 }
 
+.margin-bottom-1{margin-bottom: 1rem;}
+.margin-bottom-2{margin-bottom: 2rem;}
+
 button{
     min-width: 150px;
     font-size: 1.1rem;
     padding: 1rem 2rem;
+    height: auto;
     color: var(--White);
     font-weight: 500;
     background-color: var(--Moderate-cyan);
@@ -136,6 +140,24 @@ button:hover, #bookmark:hover::before{
 
 .active #bookmark::before{
     background-color: var(--Dark-cyan);
+}
+
+.stock{
+    background-color: var(--Gray);
+}
+
+.out-of-stock *{
+    opacity: 70%;
+}
+
+.out-of-stock button{
+    position: relative;
+    background-color: var(--Gray);
+    opacity: 100%;
+}
+
+.out-of-stock button:hover{
+    background-color: var(--Dark-gray);
 }
 
 .top-section .text-header-1{
@@ -190,3 +212,57 @@ button:hover, #bookmark:hover::before{
     background-color: var(--Moderate-cyan);
 }
 
+.pledge-choice{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.pledge-with-input{
+    position: relative;
+    padding-left: 3rem !important;
+}
+
+.pledge-with-input input[type="radio"]{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+}
+
+.choice-title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.mark-cyan{
+    color: var(--Moderate-cyan);
+    font-weight: 700;
+}
+
+.choice-end{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.choice-window{
+    position: fixed;
+    top: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0, 0, 0, 0.256);
+    display: flex;
+    justify-content: center;
+}
+
+.choice-window section{
+
+}
+
+.hidden{
+    display: none !important;
+}
