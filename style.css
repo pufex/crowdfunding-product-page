@@ -230,6 +230,23 @@ input[type="text"]{
 }
 
 
+.pledge-choice--out-of-stock{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 0rem;
+    margin-bottom: 1rem;
+}
+
+.pledge-choice-2{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+
 .pledge-with-input{
     position: relative;
     padding: 2rem;
@@ -240,21 +257,23 @@ input[type="text"]{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 1rem;
+    left: 0.75rem;
 }
 
 .the-input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
     background-color: var(--White);
     border: 2px solid var(--Moderate-cyan);
     border-radius: 100%;
 }
 .the-input-circle{
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
     background-color: var(--Moderate-cyan);
@@ -373,6 +392,55 @@ input[type="text"]{
     width: 120px;
 }
 
+
+.pledge-completed{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    top: 0;
+    background-color: hsla(0, 0%, 0%, 0.107);
+}
+
+.completed-container{
+    width: 600px;
+    padding: 4rem 3rem;
+    height: auto;
+    background-color: var(--White);
+    border-radius: 10px;
+}
+
+.completed-container img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.completed-container button{
+    display: block;
+    margin: 0 auto;
+}
+
+.completed-container p{
+    text-align: center;
+}
+
+.completed-container h1{
+    text-align: center;
+}
+
 .hidden{
-    display: none !important;
+        display: none !important;
+}
+
+.error-label{
+    color: red !important;
+}
+
+.error-input{
+    border: 1px solid red !important;
+    color: red !important;
 }

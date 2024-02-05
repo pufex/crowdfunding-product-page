@@ -69,7 +69,7 @@
       </p>
 
       <div class="pledge-choices">
-        <div class="pledge-choice">
+        <div class="pledge-choice-2">
           <div class="choice-title">
             <h2 class="text-header-2">Bamboo Stand</h2>
             <p class="text-paragraph mark-cyan">Pledge $25 or more</p>
@@ -82,13 +82,12 @@
             <h1 class="text-header-1">
               101 <span class="text-paragraph">Left</span>
             </h1>
-            <button>
-              <span class="reward">Select Reward</span>
-              <span class="out-of-stock">Out of Stock</span>
+            <button class="select-reward">
+              Select reward
             </button>
           </div>
         </div>
-        <div class="pledge-choice">
+        <div class="pledge-choice-2">
           <div class="choice-title">
             <h2 class="text-header-2">Black Edition Stand</h2>
             <p class="text-paragraph mark-cyan">Pledge $75 or more</p>
@@ -101,13 +100,12 @@
             <h1 class="text-header-1">
               64 <span class="text-paragraph">Left</span>
             </h1>
-            <button>
-              <span class="reward">Select Reward</span>
-              <span class="out-of-stock">Out of Stock</span>
+            <button class="select-reward">
+              Select Reward
             </button>
           </div>
         </div>
-        <div class="pledge-choice out-of-stock">
+        <div class="pledge-choice-2 out-of-stock">
           <div class="choice-title">
             <h2 class="text-header-2">Mahogany Special Edition</h2>
             <p class="text-paragraph mark-cyan">Pledge $200 or more</p>
@@ -129,7 +127,7 @@
     </section>
   </article>
 
-  <article class="choice-window">
+  <article class="choice-window hidden">
     <section>
       <div class="choice-nav">
         <div class="nav-icon close-window"></div>
@@ -152,14 +150,6 @@
             </p>
           </div>
         </div>
-        <div class="enter-pledge">
-          <hr>
-          <label for="">Enter your pledge</label>
-          <div class="pledge-buttons">
-            <input type="text" placeholder="$">
-            <button>Continue</button>
-          </div>
-        </div>
       </div>
       <div class="pledge-choice active">
         <div class="pledge-with-input">
@@ -177,8 +167,8 @@
 
           <label for="">Enter your pledge</label>
           <div class="pledge-buttons">
-            <input type="text" placeholder="$">
-            <button>Continue</button>
+            <input class="cash-input" type="text" placeholder="$">
+            <button class="continue">Continue</button>
           </div>
         </div>
       </div>
@@ -198,12 +188,12 @@
         <div class="enter-pledge">
           <label for="">Enter your pledge</label>
           <div class="pledge-buttons">
-            <input type="text" placeholder="$">
-            <button>Continue</button>
+            <input class="cash-input" type="text" placeholder="$">
+            <button class="continue">Continue</button>
           </div>
         </div>
       </div>
-      <div class="pledge-choice">
+      <div class="pledge-choice--out-of-stock out-of-stock">
         <div class="pledge-with-input">
           <div class="the-input">
             <div class="the-input-circle"></div>
@@ -220,13 +210,27 @@
         <div class="enter-pledge">
           <label for="">Enter your pledge</label>
           <div class="pledge-buttons">
-            <input type="text" placeholder="$">
-            <button>Continue</button>
+            <input class="cash-input" type="text" placeholder="$">
+            <button class="continue">Continue</button>
           </div>
         </div>
       </div>
     </section>
   </article>
+  <article class="pledge-completed hidden">
+    <section class="completed-container">
+      <img src="icon-check.svg" alt="">
+      <h1 class="text-header-1 margin-bottom-2">
+        Thank you for your support!
+      </h1>
+      <p class="text-paragraph margin-bottom-2">
+        Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.
+      </p>
+      <button id="got-it">Got it!</button>
+    </section>
+  </article>
+
+
 
   <!-- About
   Discover
