@@ -6,12 +6,34 @@ const pledgeCompleted = document.querySelector(".pledge-completed");
 const selectReward = document.querySelectorAll(".select-reward");
 const enterPledges = document.querySelectorAll(".enter-pledge");
 const choiceWindow = document.querySelector(".choice-window");
-
-console.log(choiceWindow);
+const hamburger = document.querySelector(".hamburger");
+const hamburgerLinks = document.querySelector(".hamburger-links");
 
 let i = 0;
 
-pledgeChoices.forEach((pledgeChoice) => {
+pledgeChoices.forEach((pledgeChoice, index) => {
+  let pledgeBar = [25, 75, 200];
+
+  let enterPledge = pledgeChoice.querySelector(".enter-pledge");
+  
+  console.dir(enterPledge);
+  let continueButton = enterPledge.getElementByClaName(".continue");
+  let cashInput = enterPledge.getElementByClassName(".cash-input");
+  let label = enterPledge.getElementByClassName("label");
+
+  continueButton.addEventListener('click', () => {
+    cashInput.classList.remove("error-input")
+    label.classList.remove("error-label")
+    label.innerHTML = "Enter your pledge"
+    if(cashInput.value >= pledgeBar[index]) {
+      choiceWindow.classList.toggle("hidden");
+      pledgeCompleted.classList.toggle("hidden");
+    }else{
+      cashInput.classList.add("error-input")
+      label.classList.add("error-label")  
+      label.innerHTML = "Enter a valid pledge"
+    }
+  })
 
   pledgeChoice.addEventListener("click", () => {
     pledgeChoices.forEach((pledgeChoice) => {
@@ -44,23 +66,12 @@ selectReward.forEach((item) => {
 })
 
 
-console.log(enterPledges)
-enterPledges.forEach((enterPledge, index) => {
-  let pledgeBar = [25, 75, 200];
-  const continueButton = enterPledge.querySelector(".continue");
-  const cashInput = enterPledge.querySelector(".cash-input");
-  const label = enterPledge.querySelector("label")
-  continueButton.addEventListener('click', () => {
-    cashInput.classList.remove("error-input")
-    label.classList.remove("error-label")
-    label.innerHTML = "Enter your pledge"
-    if(cashInput.value >= pledgeBar[index]) {
-      choiceWindow.classList.toggle("hidden");
-      pledgeCompleted.classList.toggle("hidden");
-    }else{
-      cashInput.classList.add("error-input")
-      label.classList.add("error-label")  
-      label.innerHTML = "Enter a valid pledge"
-    }
-  })
+// console.log(enterPledges)
+// enterPledges.forEach((enterPledge, index) => {
+  
+// })
+
+hamburger.addEventListener('click', () => {
+  hamburgerLinks.classList.toggle("hidden");
+  hamburger.classList.toggle("hamburger--active");
 })
