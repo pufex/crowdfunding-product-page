@@ -30,6 +30,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    overflow-y: hidden;
 }
 
 .center{
@@ -42,14 +43,15 @@ body{
 
 nav{
     background-color: rgba(0, 0, 0, 0.12);
-    box-shadow: 0 0 12px 50px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 12px 100vh rgba(0, 0, 0, 0.12);
 }
 
 .nav-child{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 0;
+    padding: 2rem;
 }
 
 .links{
@@ -61,6 +63,48 @@ nav{
     text-decoration: none;
     color: var(--White);
     font-weight: 700;
+}
+
+.hamburger-container{
+    display: none;
+}
+
+.hamburger{
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.25rem;
+    color: var(--White);
+    font-size: 2rem;
+}
+
+.hamburger--active{
+    background-color: var(--White);
+    color: var(--Black);
+}
+
+.hamburger-links{
+    position: absolute; 
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger-links .link{
+    display: block;
+    width: 180px;
+    padding: 1rem 2rem;
+    background-color: var(--White);
+    color: var(--Black);
+    text-wrap: nowrap;
+}
+
+.hamburger-links .link:hover{
+    background-color: var(--Gray);
 }
 
 .main-article{
@@ -78,6 +122,7 @@ nav{
     padding: 3rem;
     border-radius: 7px;
     margin-bottom: 1.5rem;
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.053);
 }
 
 .text-header-1{
@@ -111,23 +156,35 @@ button{
     color: var(--White);
     font-weight: 500;
     background-color: var(--Moderate-cyan);
+    text-wrap: nowrap;
 }
 
 
-button:hover, #bookmark:hover::before{
+button:hover, #bookmark:hover::after{
     background-color: var(--Dark-cyan);
 }
 
 #bookmark{
     position: relative;
-    padding-left: 3.5rem !important;
+    padding-left: 3.6rem !important;
+    width: 180px;
+}
+
+.bookmark--active{
+    background-color: var(--Gray) !important;
+    color: var(--Moderate-cyan) !important;
+}
+
+.bookmark--active:hover{
+    background-color: var(--Moderate-cyan) !important;
+    color: var(--White) !important;
 }
 
 .active #bookmark{
     background-color: var(--Gray);
 }
 
-#bookmark::before{
+#bookmark::after{
     content: "";
     position: absolute;
     display: inline-block;
@@ -147,7 +204,7 @@ input[type="text"]{
     border: 1px solid var(--Black)
 }
 
-.active #bookmark::before{
+.active #bookmark::after{
     background-color: var(--Dark-cyan);
 }
 
@@ -180,6 +237,16 @@ input[type="text"]{
     width: 100%;
     text-align: center;
     margin-bottom: 3rem;
+}
+
+.logo-mastercraft{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.12);
 }
 
 .buttons{
@@ -215,7 +282,7 @@ input[type="text"]{
 
 .progress{
     height: 100%;
-    width: 80%;
+    width: 90%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: var(--Moderate-cyan);
@@ -230,6 +297,23 @@ input[type="text"]{
 }
 
 
+.pledge-choice--out-of-stock{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 0rem;
+    margin-bottom: 1rem;
+}
+
+.pledge-choice-2{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+
 .pledge-with-input{
     position: relative;
     padding: 2rem;
@@ -240,21 +324,23 @@ input[type="text"]{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 1rem;
+    left: 0.75rem;
 }
 
 .the-input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: var(--White);
     border: 2px solid var(--Moderate-cyan);
     border-radius: 100%;
 }
 .the-input-circle{
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
     background-color: var(--Moderate-cyan);
@@ -285,6 +371,8 @@ input[type="text"]{
 .choice-window{
     position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     min-width: 100vw;
     height: 100vh;
     padding: 2rem; 
@@ -302,9 +390,10 @@ input[type="text"]{
     background-color: var(--White);
     border-radius: 10px;
     padding: 3rem 2rem;
+    height: auto;
     max-width: 800px;
     width: 100%;
-    overflow-y: auto;
+    overflow: visible;
     overflow-x: hidden;
 }
 
@@ -333,20 +422,9 @@ input[type="text"]{
     background-size: 80%;
 }
 
-
-
-
 .enter-pledge{
-    display: none;
-}
-
-.active{
-    border: 3px solid var(--Moderate-cyan)
-}
-
-.active .enter-pledge{
     position: relative;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -354,6 +432,13 @@ input[type="text"]{
     border-top: 1px solid var(--Moderate-cyan)
 }
 
+.active{
+    border: 3px solid var(--Moderate-cyan)
+}
+
+.active .enter-pledge{
+    display: flex;
+}
 
 .enter-pledge div{
     display: flex;
@@ -373,6 +458,144 @@ input[type="text"]{
     width: 120px;
 }
 
+
+.pledge-completed{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    top: 0;
+    background-color: hsla(0, 0%, 0%, 0.107);
+}
+
+.completed-container{
+    width: 100%;
+    max-width: 600px;
+    padding: 4rem 3rem;
+    height: auto;
+    background-color: var(--White);
+    border-radius: 10px;
+}
+
+.completed-container img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.completed-container button{
+    display: block;
+    margin: 0 auto;
+}
+
+.completed-container p{
+    text-align: center;
+}
+
+.completed-container h1{
+    text-align: center;
+}
+
 .hidden{
-    display: none !important;
+        display: none !important;
+}
+
+.error-label{
+    color: red !important;
+}
+
+.error-input{
+    border: 1px solid red !important;
+    color: red !important;
+}
+
+@media (max-width: 700px){
+    .hamburger-container{
+        display: block;
+    }
+
+    .links{
+        display: none;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+
+    .buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .buttons button{
+        width: 100%;
+        text-wrap: nowrap;
+    }
+
+    .info-container{
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .info-container *{
+        text-align: center;
+    }
+
+
+    .border-right{
+        border: none;
+    }
+
+    .choice-window{
+        padding: 0;
+    }
+
+    .choice-title{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    
+    }
+    .choice-title *{
+        text-align: center;
+    }
+
+    .choice-end{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+    .choice-end button{
+        width: 100%;
+    }
+
+    .enter-pledge{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pledge-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pledge-buttons *{
+        display: block;
+        width: 100%;
+    }
+
+    .completed-container{
+        min-height: 100vh;
+        height: auto;
+    }
+
 }
