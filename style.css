@@ -48,6 +48,7 @@ nav{
 
 .nav-child{
     position: relative;
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,6 +64,48 @@ nav{
     text-decoration: none;
     color: var(--White);
     font-weight: 700;
+}
+
+.hamburger-container{
+    display: none;
+}
+
+.hamburger{
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0.25rem;
+    color: var(--White);
+    font-size: 2rem;
+}
+
+.hamburger--active{
+    background-color: var(--White);
+    color: var(--Black);
+}
+
+.hamburger-links{
+    position: absolute; 
+    top: 100%;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger-links .link{
+    display: block;
+    width: 180px;
+    padding: 1rem 2rem;
+    background-color: var(--White);
+    color: var(--Black);
+    text-wrap: nowrap;
+}
+
+.hamburger-links .link:hover{
+    background-color: var(--Gray);
 }
 
 .hamburger-container{
@@ -249,6 +292,16 @@ input[type="text"]{
     box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.12);
 }
 
+.logo-mastercraft{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    box-shadow: 0 0 12px 1px rgba(0, 0, 0, 0.12);
+}
+
 .buttons{
     width: 100%;
     display: flex;
@@ -314,6 +367,23 @@ input[type="text"]{
 }
 
 
+.pledge-choice--out-of-stock{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 0rem;
+    margin-bottom: 1rem;
+}
+
+.pledge-choice-2{
+    width: 100%;
+    border: 1px solid var(--Gray);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+
 .pledge-with-input{
     position: relative;
     padding: 2rem;
@@ -324,6 +394,7 @@ input[type="text"]{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    left: 0.75rem;
     left: 0.75rem;
 }
 
@@ -437,6 +508,13 @@ input[type="text"]{
 }
 
 .active .enter-pledge{
+}
+
+.active{
+    border: 3px solid var(--Moderate-cyan)
+}
+
+.active .enter-pledge{
     display: flex;
 }
 
@@ -499,7 +577,49 @@ input[type="text"]{
     text-align: center;
 }
 
+
+.pledge-completed{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    top: 0;
+    background-color: hsla(0, 0%, 0%, 0.107);
+}
+
+.completed-container{
+    width: 100%;
+    max-width: 600px;
+    padding: 4rem 3rem;
+    height: auto;
+    background-color: var(--White);
+    border-radius: 10px;
+}
+
+.completed-container img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.completed-container button{
+    display: block;
+    margin: 0 auto;
+}
+
+.completed-container p{
+    text-align: center;
+}
+
+.completed-container h1{
+    text-align: center;
+}
+
 .hidden{
+        display: none !important;
         display: none !important;
 }
 
