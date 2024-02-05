@@ -46,7 +46,7 @@ selectReward.forEach((item) => {
 
 console.log(enterPledges)
 enterPledges.forEach((enterPledge, index) => {
-  let pledgeBar = [25, 75, 200, 999999];
+  let pledgeBar = [25, 75, 200];
   const continueButton = enterPledge.querySelector(".continue");
   const cashInput = enterPledge.querySelector(".cash-input");
   const label = enterPledge.querySelector("label")
